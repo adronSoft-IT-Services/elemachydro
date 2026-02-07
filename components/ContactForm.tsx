@@ -22,20 +22,22 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
         e.preventDefault();
         setLoading(true);
 
+        const encode = (data: any) => {
+            return Object.keys(data)
+                .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                .join("&");
+        }
+
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formState)
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({ "form-name": "contact", ...formState })
             });
 
-            if (response.ok) {
-                setSuccess(true);
-                setFormState({ name: "", email: "", phone: "", message: "" });
-                setTimeout(() => setSuccess(false), 5000);
-            } else {
-                alert('Failed to send message.');
-            }
+            setSuccess(true);
+            setFormState({ name: "", email: "", phone: "", message: "" });
+            setTimeout(() => setSuccess(false), 5000);
         } catch (error) {
             console.error('Error:', error);
             alert('Something went wrong. Please try again.');
@@ -52,7 +54,8 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
     };
 
     return (
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit} data-netlify="true" name="contact">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
                 <label htmlFor="name" className="pb-2 block text-sm font-semibold text-gray-700">
                     Your Name
