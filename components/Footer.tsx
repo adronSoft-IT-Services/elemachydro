@@ -72,6 +72,9 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Elemac Hydro Solutions. All Rights Reserved.</p>
+          <p className="footer-credit">
+            Designed and powered By <a href="https://www.adronsoft.org" target="_blank" rel="noopener noreferrer">adronSoft</a>
+          </p>
         </div>
       </div>
 
@@ -158,6 +161,19 @@ export default function Footer() {
           color: #757575;
           font-size: 0.85rem;
         }
+        .footer-credit {
+           margin-top: 5px;
+           font-size: 0.8rem;
+        }
+        .footer-credit a {
+           color: #757575;
+           text-decoration: none;
+           transition: color 0.2s;
+        }
+        .footer-credit a:hover {
+           color: var(--primary-color);
+        }
+
       `}</style>
     </footer>
   );
