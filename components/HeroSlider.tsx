@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -75,9 +73,18 @@ export default function HeroSlider() {
           <div className="overlay"></div>
           <div className="container content">
             <h1 className="title">
-              {slide.title.split(slide.highlight)[0]}
-              {slide.highlight && <span className="highlight">{slide.highlight}</span>}
-              {slide.title.split(slide.highlight)[1]}
+              {slide.title.includes(slide.highlight) ? (
+                <>
+                  {slide.title.split(slide.highlight)[0]}
+                  <span className="highlight">{slide.highlight}</span>
+                  {slide.title.split(slide.highlight)[1]}
+                </>
+              ) : (
+                <>
+                  {slide.title} <br />
+                  <span className="highlight">{slide.highlight}</span>
+                </>
+              )}
             </h1>
             <p className="subtitle">{slide.subtitle}</p>
             <Link href={slide.link} className="btn btn-primary">

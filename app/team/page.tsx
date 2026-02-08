@@ -16,8 +16,7 @@ export default function Team() {
             <section className="section">
                 <div className="container">
                     <div className="director-card">
-                        <div className="director-image placeholder-image">
-                            <div className="inner-placeholder">MD. Sajid Khan Photo</div>
+                        <div className="director-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         </div>
                         <div className="director-content">
                             <Quote size={48} className="quote-icon" />
@@ -47,21 +46,15 @@ export default function Team() {
                 <div className="container">
                     <h2 className="section-title text-center">Meet the Core Team</h2>
                     <div className="team-grid">
-                        {/* Placeholders for other team members if any */}
                         <div className="team-card">
-                            <div className="avatar-placeholder"></div>
-                            <h4>Technical Head</h4>
-                            <p className="role">Chief Engineer</p>
+                            <div className="avatar-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80)', backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                            <h4>MD. Sajid Khan</h4>
+                            <p className="role">Director</p>
                         </div>
                         <div className="team-card">
-                            <div className="avatar-placeholder"></div>
-                            <h4>Operations Manager</h4>
-                            <p className="role">Project Coordinator</p>
-                        </div>
-                        <div className="team-card">
-                            <div className="avatar-placeholder"></div>
-                            <h4>Sales Director</h4>
-                            <p className="role">Client Relations</p>
+                            <div className="avatar-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80)', backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                            <h4>Rakhshanda JK</h4>
+                            <p className="role">Purchase</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +124,7 @@ export default function Team() {
            border-radius: var(--radius);
            box-shadow: var(--shadow);
         }
-        .avatar-placeholder {
+        .avatar-image {
            width: 100px;
            height: 100px;
            background: #eee;

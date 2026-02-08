@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import Link from "next/link";
 import { Calendar, User } from "lucide-react";
 
@@ -12,7 +10,7 @@ const articles = [
         excerpt: "Discover why hydraulic lifts remain a top choice for low-rise buildings due to their smooth operation and safety features.",
         date: "Feb 06, 2026",
         author: "Technical Team",
-        image: "/assets/blog1.jpg" // Placeholder path
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800"
     },
     {
         id: 2,
@@ -20,7 +18,7 @@ const articles = [
         excerpt: "A comprehensive comparison between Machine Room-Less (MRL) and traditional traction elevators for residential projects.",
         date: "Jan 20, 2026",
         author: "Sajid Khan",
-        image: "/assets/blog2.jpg"
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800"
     },
     {
         id: 3,
@@ -28,7 +26,7 @@ const articles = [
         excerpt: "Understanding the importance of regular AMC and following European Machine Directive safety protocols.",
         date: "Dec 15, 2025",
         author: "Safety Officer",
-        image: "/assets/blog3.jpg"
+        image: "https://images.unsplash.com/photo-1581094794329-cd1096a7a2a8?auto=format&fit=crop&w=800"
     }
 ];
 
@@ -47,8 +45,7 @@ export default function Blogs() {
                     <div className="articles-grid">
                         {articles.map((article) => (
                             <div key={article.id} className="article-card">
-                                <div className="article-image placeholder-image">
-                                    <div className="inner-placeholder">Article Image</div>
+                                <div className="article-image" style={{ backgroundImage: `url(${article.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                                 </div>
                                 <div className="article-content">
                                     <div className="article-meta">

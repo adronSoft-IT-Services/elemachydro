@@ -16,7 +16,8 @@ const services = [
   },
   {
     icon: <Shield size={40} />,
-    desc: "Comprehensive maintenance packages (Comprehensive &amp; Non-Comprehensive) to ensure zero downtime. 24/7 breakdown support included."
+    title: "Maintenance & Support",
+    desc: "Comprehensive maintenance packages (Comprehensive & Non-Comprehensive) to ensure zero downtime. 24/7 breakdown support included."
   },
   {
     icon: <Search size={40} />,

@@ -40,7 +40,7 @@ export default function Contact() {
                             <div>
                                 <h5>Email</h5>
                                 <p>
-                                    <a href="mailto:info@elemachydro.com">info@elemachydro.com</a>
+                                    <a href="mailto:info@elemachydro.com" style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}>info@elemachydro.com</a>
                                 </p>
                             </div>
                         </div>

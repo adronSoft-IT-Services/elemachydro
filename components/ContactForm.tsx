@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send, User, Mail, Phone, MessageSquare } from "lucide-react";
+// Removed static import of Swal to prevent SSR issues
 
 interface ContactFormProps {
     variant?: 'card' | 'clean';
@@ -22,6 +23,9 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
         e.preventDefault();
         setLoading(true);
 
+        // Dynamically import SweetAlert2
+        const Swal = (await import('sweetalert2')).default;
+
         const encode = (data: any) => {
             return Object.keys(data)
                 .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -37,10 +41,32 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
 
             setSuccess(true);
             setFormState({ name: "", email: "", phone: "", message: "" });
+
+            Swal.fire({
+                title: 'Message Sent!',
+                text: 'Thank you for contacting us. We will get back to you shortly.',
+                icon: 'success',
+                confirmButtonColor: '#00897B',
+                confirmButtonText: 'Great!',
+                width: 400,
+                padding: '2em',
+                background: '#fff url(/images/trees.png)',
+                backdrop: `
+                    rgba(0,0,123,0.1)
+                    left top
+                    no-repeat
+                `
+            });
+
             setTimeout(() => setSuccess(false), 5000);
         } catch (error) {
             console.error('Error:', error);
-            alert('Something went wrong. Please try again.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong. Please try again.',
+                icon: 'error',
+                confirmButtonColor: '#e53935'
+            });
         } finally {
             setLoading(false);
         }
@@ -56,92 +82,89 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
     return (
         <form className="contact-form" onSubmit={handleSubmit} data-netlify="true" name="contact">
             <input type="hidden" name="form-name" value="contact" />
-            <div className="form-group">
-                <label htmlFor="name" className="pb-2 block text-sm font-semibold text-gray-700">
-                    Your Name
-                </label>
-                <div className="input-wrapper">
-                    <User className="input-icon" size={18} />
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="John Doe"
-                        value={formState.name}
-                        onChange={handleChange}
-                    />
-                </div>
-            </div>
 
             <div className="form-row">
                 <div className="form-group">
-                    <label htmlFor="email" className="pb-2 block text-sm font-semibold text-gray-700">
-                        Email Address
-                    </label>
+                    <label>Full Name</label>
+                    <div className="input-wrapper">
+                        <User className="input-icon" size={18} />
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="John Doe"
+                            required
+                            value={formState.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
+
+                <div className="form-group">
+                    <label>Email Address</label>
                     <div className="input-wrapper">
                         <Mail className="input-icon" size={18} />
                         <input
                             type="email"
-                            id="email"
                             name="email"
-                            required
                             placeholder="john@example.com"
+                            required
                             value={formState.email}
                             onChange={handleChange}
                         />
                     </div>
                 </div>
+            </div>
 
-                <div className="form-group">
-                    <label htmlFor="phone" className="pb-2 block text-sm font-semibold text-gray-700">
-                        Phone Number
-                    </label>
-                    <div className="input-wrapper">
-                        <Phone className="input-icon" size={18} />
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            required
-                            placeholder="+91 98765 43210"
-                            value={formState.phone}
-                            onChange={handleChange}
-                        />
-                    </div>
+            <div className="form-group w-full">
+                <label>Phone Number</label>
+                <div className="input-wrapper">
+                    <Phone className="input-icon" size={18} />
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="+91 XXXXX XXXXX"
+                        required
+                        value={formState.phone}
+                        onChange={handleChange}
+                    />
                 </div>
             </div>
 
-            <div className="form-group">
-                <label htmlFor="message" className="pb-2 block text-sm font-semibold text-gray-700">
-                    How can we help you?
-                </label>
-                <div className="input-wrapper textarea-wrapper">
+            <div className="form-group w-full">
+                <label>How can we help?</label>
+                <div className="input-wrapper">
                     <MessageSquare className="input-icon textarea-icon" size={18} />
                     <textarea
-                        id="message"
                         name="message"
-                        required
                         rows={4}
                         placeholder="Tell us about your requirements..."
+                        required
                         value={formState.message}
                         onChange={handleChange}
                     ></textarea>
                 </div>
             </div>
 
-            <button type="submit" className={`btn btn-primary w-full ${loading ? 'loading' : ''}`} disabled={loading}>
-                {loading ? 'Sending...' : success ? 'Message Sent!' : 'Send Message'}
-                {!loading && !success && <Send size={18} />}
+            <button type="submit" className="btn btn-primary w-full" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
+                {!loading && <Send size={18} style={{ marginLeft: '10px' }} />}
             </button>
 
             {success && (
                 <div className="success-message">
-                    Thank you! We&apos;ll get back to you shortly.
+                    Thank you! Your message has been sent.
                 </div>
             )}
 
+
             <style jsx>{`
+                /* ... existing styles ... */
+                
+                input::placeholder, textarea::placeholder {
+                    color: #ccc;
+                    opacity: 1; /* Firefox */
+                }
+                
                 .contact-form {
                     background: white;
                     padding: ${variant === 'card' ? '30px' : '0'};

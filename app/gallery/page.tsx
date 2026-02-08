@@ -6,12 +6,12 @@ import Image from "next/image";
 
 // Placeholder data - In real app, these would be your actual image paths from /public
 const galleryImages = [
-    { id: 1, src: "https://images.unsplash.com/photo-1621360841012-3f82cb593c68?auto=format&fit=crop&w=800", caption: "Luxury Home Elevator" },
-    { id: 2, src: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800", caption: "Hydraulic Pump System" },
-    { id: 3, src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800", caption: "Glass Observation Lift" },
-    { id: 4, src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800", caption: "Commercial Cargo Lift" },
-    { id: 5, src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800", caption: "Modern Cabin Interior" },
-    { id: 6, src: "https://images.unsplash.com/photo-1581094794329-cd1096a7a2a8?auto=format&fit=crop&w=800", caption: "Site Installation Team" },
+    { id: 1, src: "/assets/gallery/MOdernCommercialLiftLobby.webp", caption: "Modern Commercial Lift Lobby" },
+    { id: 2, src: "/assets/gallery/ModernStainlessStellLiftDoors.webp", caption: "Modern Stainless Steel Lift Doors" },
+    { id: 3, src: "/assets/gallery/LuxuryHomeLifts.webp", caption: "Luxury Home Lifts" },
+    { id: 4, src: "/assets/gallery/GlassObservableLifts.webp", caption: "Glass Observation Lifts" },
+    { id: 5, src: "/assets/gallery/CommercialCargoLift.webp", caption: "Commercial Cargo Lift" },
+    { id: 6, src: "/assets/gallery/HighRiseCommercialElevators.webp", caption: "High-Rise Commercial Elevators" },
 ];
 
 export default function Gallery() {

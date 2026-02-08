@@ -37,7 +37,7 @@ export default function About() {
                         </div>
                         <div className="col-image bg-pattern">
                             {/* You can replace this with a real team or office image later */}
-                            <div className="img-overlay" style={{ backgroundImage: 'url(/assets/startel-18-1900x1269.jpg)' }}></div>
+                            <div className="img-overlay" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80)' }}></div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ export default function About() {
                 <div className="container">
                     <div className="row">
                         <div className="col-image bg-pattern order-2">
-                            <div className="img-overlay" style={{ backgroundImage: 'url(/assets/foto4-1900x1267.jpg)' }}></div>
+                            <div className="img-overlay" style={{ backgroundImage: 'url(/assets/gallery/MOdernCommercialLiftLobby.webp)' }}></div>
                         </div>
                         <div className="col-text order-1">
                             <div className="mission-grid">
