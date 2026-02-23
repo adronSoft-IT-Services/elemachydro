@@ -27,8 +27,15 @@ export default function Header() {
         <div className="container header-container">
           {/* Logo */}
           <Link href="/" className="logo-link">
-            <div className="logo-wrapper">
-              <Image src="/logo.png" alt="Elemac" width={180} height={60} className="logo-img" />
+            <div className="logo-wrapper" style={{ position: 'relative', width: '180px', height: '60px' }}>
+              <Image
+                src="/logo.png"
+                alt="Elemac Hydro Solutions"
+                fill
+                className="logo-img"
+                priority
+                style={{ objectFit: 'contain', objectPosition: 'left' }}
+              />
             </div>
           </Link>
 
@@ -47,9 +54,9 @@ export default function Header() {
             </nav>
 
             <div className="header-buttons">
-              <a href="tel:+919540090276" className="phone-btn" title="Call Us">
+              <a href="tel:+919205693523" className="phone-btn" title="Call Us">
                 <div className="phone-icon-circle"><Phone size={18} /></div>
-                <span className="phone-text">+91 95400-90276</span>
+                <span className="phone-text">+91 92056 93523</span>
               </a>
               <button onClick={() => setIsModalOpen(true)} className="btn btn-primary btn-quote">
                 Get Quote
@@ -80,7 +87,7 @@ export default function Header() {
                 Get a Free Quote
               </button>
               <div className="mobile-contact">
-                <a href="tel:+919540090276"><Phone size={16} /> +91 95400-90276</a>
+                <a href="tel:+919205693523"><Phone size={16} /> +91 92056 93523</a>
                 <a href="mailto:info@elemachydro.com"><Mail size={16} /> info@elemachydro.com</a>
               </div>
             </div>

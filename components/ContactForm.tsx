@@ -1,4 +1,5 @@
-"use client";
+
+import { submitContactForm } from "@/app/actions";
 
 import { useState } from "react";
 import { Send, User, Mail, Phone, MessageSquare } from "lucide-react";
@@ -38,6 +39,15 @@ export default function ContactForm({ variant = 'card' }: ContactFormProps) {
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({ "form-name": "contact", ...formState })
             });
+
+            // Also submit to Google Sheets
+            const formData = new FormData();
+            formData.append("name", formState.name);
+            formData.append("email", formState.email);
+            formData.append("phone", formState.phone);
+            formData.append("message", formState.message);
+
+            await submitContactForm(formData);
 
             setSuccess(true);
             setFormState({ name: "", email: "", phone: "", message: "" });

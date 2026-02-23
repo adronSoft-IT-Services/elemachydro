@@ -16,7 +16,7 @@ export default function Team() {
             <section className="section">
                 <div className="container">
                     <div className="director-card">
-                        <div className="director-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <div className="director-image" style={{ backgroundImage: "url('/assets/SajidKhan01.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         </div>
                         <div className="director-content">
                             <Quote size={48} className="quote-icon" />
@@ -47,7 +47,7 @@ export default function Team() {
                     <h2 className="section-title text-center">Meet the Core Team</h2>
                     <div className="team-grid">
                         <div className="team-card">
-                            <div className="avatar-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80)', backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
+                            <div className="avatar-image" style={{ backgroundImage: "url('/assets/SajidKhan01.webp')", backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
                             <h4>MD. Sajid Khan</h4>
                             <p className="role">Director</p>
                         </div>

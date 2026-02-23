@@ -3,26 +3,26 @@
 import { MessageCircle, Phone } from "lucide-react";
 
 export default function FloatingWidgets() {
-    return (
-        <div className="floating-widgets">
-            <a
-                href="https://wa.me/919540090276?text=Hi, I am interested in your elevator services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="widget-btn whatsapp"
-                title="Chat on WhatsApp"
-            >
-                <MessageCircle size={24} />
-            </a>
-            <a
-                href="tel:+919540090276"
-                className="widget-btn phone"
-                title="Call Us"
-            >
-                <Phone size={24} />
-            </a>
+  return (
+    <div className="floating-widgets">
+      <a
+        href="https://wa.me/919205693523?text=Hi, I am interested in your elevator services."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="widget-btn whatsapp"
+        title="Chat on WhatsApp"
+      >
+        <MessageCircle size={24} />
+      </a>
+      <a
+        href="tel:+919205693523"
+        className="widget-btn phone"
+        title="Call Us"
+      >
+        <Phone size={24} />
+      </a>
 
-            <style jsx>{`
+      <style jsx>{`
         .floating-widgets {
           position: fixed;
           bottom: 20px;
@@ -54,6 +54,6 @@ export default function FloatingWidgets() {
           background-color: var(--primary-color);
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
